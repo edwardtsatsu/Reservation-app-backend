@@ -1,11 +1,12 @@
 package com.giskard.ReservationProject.model;
 import lombok.Data;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Data
-public class Availabilities {
+public class Availabilities implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
