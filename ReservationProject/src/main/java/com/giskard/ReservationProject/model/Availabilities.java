@@ -1,6 +1,5 @@
 package com.giskard.ReservationProject.model;
 import lombok.Data;
-
 import javax.persistence.*;
 import java.util.Date;
 
