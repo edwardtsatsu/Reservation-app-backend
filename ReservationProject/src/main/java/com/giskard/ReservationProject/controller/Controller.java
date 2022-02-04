@@ -1,38 +1,45 @@
 package com.giskard.ReservationProject.controller;
-import com.giskard.ReservationProject.model.Availabilities;
+import com.giskard.ReservationProject.dto.AvailabilityDto;
+import com.giskard.ReservationProject.model.Availability;
+import com.giskard.ReservationProject.request.AvailabilityRequest;
 import com.giskard.ReservationProject.service.AvailabilitiesService;
+import lombok.AllArgsConstructor;
+import lombok.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.UUID;
+import javax.validation.Valid;
+import java.util.List;
+
 
 @RestController
-@RequestMapping("/reservation")
+@AllArgsConstructor
 public class Controller {
 
     private final AvailabilitiesService availabilitiesService;
 
-    public Controller(AvailabilitiesService availabilitiesService) {
-        this.availabilitiesService = availabilitiesService;
+
+    @PostMapping("/availabilities")
+    public ResponseEntity<AvailabilityDto> addAvailabilities(@Valid @RequestBody
+                         @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) AvailabilityRequest availabilityRequest) {
+        return new ResponseEntity<>(availabilitiesService.addAvailabilities(availabilityRequest), HttpStatus.CREATED);
     }
 
 
-    @PostMapping("/add")
-    public ResponseEntity<Availabilities> addAvailabilities(@RequestBody
-                         @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Availabilities availabilities) {
-        Availabilities newAvailability = availabilitiesService.addAvailabilities(availabilities);
-        return new ResponseEntity<>(newAvailability, HttpStatus.CREATED);
+    @GetMapping("/availabilities")
+    public List<AvailabilityDto> getAvailabilities(){
+        return availabilitiesService.getAvailabilities();
     }
 
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/availabilities/{id}")
     public ResponseEntity<?> deleteAvailabilities(@PathVariable("id") Long id){
         availabilitiesService.deleteAvailabilities(id);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
+    }
 
 
 }

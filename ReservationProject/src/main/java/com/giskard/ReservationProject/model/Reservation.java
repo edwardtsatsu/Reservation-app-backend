@@ -1,27 +1,28 @@
 package com.giskard.ReservationProject.model;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
+import lombok.*;
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
-import java.util.UUID;
+
 
 @Entity
-@Data
+@Setter
+@Getter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "RESERVATION")
-public class Reservation implements Serializable {
+public class Reservation {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "start")
     private Date start;
+    @Column(name = "_end")
     private Date end;
+    @Column
     private String title;
+    @Column
     private String email;
 
 
