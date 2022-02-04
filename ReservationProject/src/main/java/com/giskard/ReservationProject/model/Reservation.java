@@ -1,11 +1,17 @@
 package com.giskard.ReservationProject.model;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "RESERVATION")
 public class Reservation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
