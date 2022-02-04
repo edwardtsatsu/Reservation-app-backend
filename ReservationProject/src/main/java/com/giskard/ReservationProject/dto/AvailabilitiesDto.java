@@ -1,4 +1,5 @@
 package com.giskard.ReservationProject.dto;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Value;
@@ -10,7 +11,10 @@ import java.util.Date;
 @Builder
 @Data
 public class AvailabilitiesDto {
+
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     Date start;
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     Date end;
 }

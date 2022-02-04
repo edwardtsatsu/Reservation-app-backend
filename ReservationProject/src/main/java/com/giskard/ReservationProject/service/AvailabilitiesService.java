@@ -18,4 +18,9 @@ public class AvailabilitiesService {
     }
 
 
+    public void deleteAvailabilities(Long id){
+        availabilitiesRepository.deleteById(id);
+    }
+
+
 }

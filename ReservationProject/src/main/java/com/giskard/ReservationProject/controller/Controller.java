@@ -25,4 +25,12 @@ public class Controller {
     }
 
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteAvailabilities(@PathVariable("id") Long id){
+        availabilitiesService.deleteAvailabilities(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
+
 }
