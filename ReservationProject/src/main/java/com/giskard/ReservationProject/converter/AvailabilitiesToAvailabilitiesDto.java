@@ -9,7 +9,10 @@ public class AvailabilitiesToAvailabilitiesDto implements Converter<Availabiliti
 
     @Override
     public AvailabilitiesDto convert(Availabilities source) {
-        return null;
+        return AvailabilitiesDto.builder()
+                .start(source.getStart())
+                .end(source.getEnd())
+                .build();
     }
 
 }
