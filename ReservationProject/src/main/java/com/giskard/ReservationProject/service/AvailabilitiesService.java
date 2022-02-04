@@ -1,4 +1,5 @@
 package com.giskard.ReservationProject.service;
+import com.giskard.ReservationProject.converter.AvailabilitiesToAvailabilitiesDtoConverter;
 import com.giskard.ReservationProject.model.Availabilities;
 import com.giskard.ReservationProject.repository.AvailabilitiesRepository;
 import org.springframework.stereotype.Service;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 public class AvailabilitiesService {
 
     private final AvailabilitiesRepository availabilitiesRepository;
+    private final AvailabilitiesToAvailabilitiesDtoConverter availabilitiesToAvailabilitiesDtoConverter;
 
     public AvailabilitiesService(AvailabilitiesRepository availabilitiesRepository) {
         this.availabilitiesRepository = availabilitiesRepository;
