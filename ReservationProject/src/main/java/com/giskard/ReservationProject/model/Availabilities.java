@@ -4,16 +4,17 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Builder
 @Table(name = "AVAILABILITIES")
 public class Availabilities implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
@@ -21,5 +22,6 @@ public class Availabilities implements Serializable {
 
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date end;
+
 
 }

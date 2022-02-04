@@ -2,6 +2,7 @@ package com.giskard.ReservationProject.repository;
 import com.giskard.ReservationProject.model.Reservation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
 import java.util.Optional;
 
 @Repository

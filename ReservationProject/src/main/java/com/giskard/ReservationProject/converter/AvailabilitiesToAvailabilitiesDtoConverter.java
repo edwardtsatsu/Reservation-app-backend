@@ -13,6 +13,8 @@ public class AvailabilitiesToAvailabilitiesDtoConverter implements Converter<Ava
                 .start(source.getStart())
                 .end(source.getEnd())
                 .build();
+
+
     }
 
 }
