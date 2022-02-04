@@ -1,10 +1,8 @@
 package com.giskard.ReservationProject.controller;
 import com.giskard.ReservationProject.dto.AvailabilityDto;
-import com.giskard.ReservationProject.model.Availability;
 import com.giskard.ReservationProject.request.AvailabilityRequest;
 import com.giskard.ReservationProject.service.AvailabilitiesService;
 import lombok.AllArgsConstructor;
-import lombok.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +21,7 @@ public class Controller {
 
     @PostMapping("/availabilities")
     public ResponseEntity<AvailabilityDto> addAvailabilities(@Valid @RequestBody
-                         @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) AvailabilityRequest availabilityRequest) {
+                          AvailabilityRequest availabilityRequest) {
         return new ResponseEntity<>(availabilitiesService.addAvailabilities(availabilityRequest), HttpStatus.CREATED);
     }
 

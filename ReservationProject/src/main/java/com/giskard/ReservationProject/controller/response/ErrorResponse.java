@@ -9,6 +9,4 @@ public class ErrorResponse {
 
     private final LocalDateTime  timeStamp =  LocalDateTime.now();
 
-
-
 }

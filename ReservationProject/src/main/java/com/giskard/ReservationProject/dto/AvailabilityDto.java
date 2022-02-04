@@ -4,7 +4,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
+import java.time.LocalDateTime;
 import java.util.Date;
+
 
 @Value
 @Jacksonized
@@ -12,12 +14,14 @@ import java.util.Date;
 @Data
 public class AvailabilityDto {
 
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    Date start;
-
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    Date end;
-
     Long id;
+
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    LocalDateTime start;
+
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    LocalDateTime end;
+
+
 
 }

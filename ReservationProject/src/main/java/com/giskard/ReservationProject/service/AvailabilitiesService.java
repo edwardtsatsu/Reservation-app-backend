@@ -7,7 +7,6 @@ import com.giskard.ReservationProject.model.Availability;
 import com.giskard.ReservationProject.repository.AvailabilitiesRepository;
 import com.giskard.ReservationProject.request.AvailabilityRequest;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

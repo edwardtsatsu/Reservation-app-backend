@@ -1,5 +1,4 @@
 package com.giskard.ReservationProject.dto;
-
 import lombok.Builder;
 import lombok.Data;
 import lombok.Value;

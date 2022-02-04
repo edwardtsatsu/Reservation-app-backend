@@ -3,9 +3,12 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Value;
-import javax.validation.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.util.Date;
+
 
 @Value
 @Builder
@@ -13,14 +16,15 @@ import java.util.Date;
 public class AvailabilityRequest {
 
     @NotNull
-    @NotEmpty
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    Date start;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @JsonFormat(pattern="yyyy-MM-dd-HH:mm:ss")
+    LocalDateTime start;
 
 
     @NotNull
-    @NotEmpty
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    Date end;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @JsonFormat(pattern="yyyy-MM-dd-HH:mm:ss")
+    LocalDateTime end;
+
 
 }
