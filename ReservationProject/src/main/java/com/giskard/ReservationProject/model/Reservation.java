@@ -28,12 +28,9 @@ public class Reservation {
     @Column(name = "_end")
     private LocalDateTime end;
 
-
     private String title;
 
-
     private String email;
-
 
     @ManyToOne
     @JoinColumn(name = "availability_id")
