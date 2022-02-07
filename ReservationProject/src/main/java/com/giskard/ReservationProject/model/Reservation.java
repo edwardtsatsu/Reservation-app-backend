@@ -1,21 +1,26 @@
 package com.giskard.ReservationProject.model;
 import lombok.*;
+import lombok.experimental.Accessors;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.UUID;
 
 
 @Entity
 @Setter
 @Getter
 @ToString
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "RESERVATION")
+@Accessors(chain = true)
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private UUID id;
 
     @Column(name = "_start")
     private LocalDateTime start;
@@ -23,11 +28,15 @@ public class Reservation {
     @Column(name = "_end")
     private LocalDateTime end;
 
-    @Column(name = "_title")
+
     private String title;
 
-    @Column
+
     private String email;
 
+
+    @ManyToOne
+    @JoinColumn(name = "availability_id")
+    private Availability availability;
 
 }

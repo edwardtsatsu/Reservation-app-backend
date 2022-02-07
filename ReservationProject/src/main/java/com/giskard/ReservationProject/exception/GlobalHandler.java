@@ -26,6 +26,7 @@ public class GlobalHandler{
     }
 
 
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Object> handleMethodArgumentNotValid1(MethodArgumentNotValidException ex, WebRequest request) {
         Map<String, String> map = new HashMap<>();

@@ -4,42 +4,41 @@ import com.giskard.ReservationProject.dto.AvailabilityDto;
 import com.giskard.ReservationProject.converter.AvailabilityToAvailabilityDtoConverter;
 import com.giskard.ReservationProject.exception.AvailabilityNotFoundException;
 import com.giskard.ReservationProject.model.Availability;
-import com.giskard.ReservationProject.repository.AvailabilitiesRepository;
+import com.giskard.ReservationProject.repository.AvailabilityRepository;
 import com.giskard.ReservationProject.request.AvailabilityRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
-public class AvailabilitiesService {
+public class AvailabilityService {
 
-
-    private final AvailabilitiesRepository availabilitiesRepository;
-    private final AvailabilityToAvailabilityDtoConverter availabilitiesToAvailabilitiesResponseConverter;
+    private final AvailabilityRepository availabilityRepository;
+    private final AvailabilityToAvailabilityDtoConverter availabilityToAvailabilityDtoConverter;
     private final AvailabilityRequestToAvailabilityConverter availabilityRequestToAvailabilityConverter;
 
 
-    public AvailabilityDto addAvailabilities(AvailabilityRequest availabilityRequest) {
-        return availabilitiesToAvailabilitiesResponseConverter
-                .convert(availabilitiesRepository.save(availabilityRequestToAvailabilityConverter
+    public AvailabilityDto createAvailabilities(AvailabilityRequest availabilityRequest) {
+        return availabilityToAvailabilityDtoConverter
+                .convert(availabilityRepository.save(availabilityRequestToAvailabilityConverter
                         .convert(availabilityRequest)));
     }
 
 
-    public void deleteAvailabilities(Long id) {
-        Availability availabilities = availabilitiesRepository.
+    public void deleteAvailabilities(UUID id) {
+        Availability availabilities = availabilityRepository.
                 findById(id).orElseThrow(()->
                         new AvailabilityNotFoundException("Availability with id " + id + " not found"));
-        availabilitiesRepository.delete(availabilities);
+        availabilityRepository.delete(availabilities);
     }
 
 
     public List<AvailabilityDto> getAvailabilities() {
-        return availabilitiesRepository.findAll().stream()
-                .map(availabilitiesToAvailabilitiesResponseConverter::convert)
+        return availabilityRepository.findAll().stream()
+                .map(availabilityToAvailabilityDtoConverter::convert)
                 .collect(Collectors.toList());
     }
 

@@ -4,8 +4,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.Value;
 import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 
 @Value
@@ -26,4 +28,6 @@ public class ReservationRequest {
     String title;
 
     String email;
+
+    UUID availabilityId;
 }

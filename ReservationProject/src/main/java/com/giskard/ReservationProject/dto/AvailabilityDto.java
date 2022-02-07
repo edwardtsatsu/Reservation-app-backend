@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.UUID;
 
 
 @Value
@@ -14,7 +14,7 @@ import java.util.Date;
 @Data
 public class AvailabilityDto {
 
-    Long id;
+    UUID id;
 
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     LocalDateTime start;
