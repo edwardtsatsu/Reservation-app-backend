@@ -31,7 +31,8 @@ public class AvailabilitiesService {
 
     public void deleteAvailabilities(Long id) {
         Availability availabilities = availabilitiesRepository.
-                findById(id).orElseThrow(()-> new AvailabilityNotFoundException("Availability with id " + id + " not found"));
+                findById(id).orElseThrow(()->
+                        new AvailabilityNotFoundException("Availability with id " + id + " not found"));
         availabilitiesRepository.delete(availabilities);
     }
 

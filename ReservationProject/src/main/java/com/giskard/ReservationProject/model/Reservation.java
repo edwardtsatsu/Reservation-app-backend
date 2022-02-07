@@ -1,6 +1,7 @@
 package com.giskard.ReservationProject.model;
 import lombok.*;
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 
@@ -16,12 +17,15 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "start")
-    private Date start;
+    @Column(name = "_start")
+    private LocalDateTime start;
+
     @Column(name = "_end")
-    private Date end;
-    @Column
+    private LocalDateTime end;
+
+    @Column(name = "_title")
     private String title;
+
     @Column
     private String email;
 

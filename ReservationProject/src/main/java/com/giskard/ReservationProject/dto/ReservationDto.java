@@ -2,15 +2,24 @@ package com.giskard.ReservationProject.dto;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Value;
+import java.time.LocalDateTime;
 
-import java.util.Date;
 
 @Value
 @Builder
 @Data
 public class ReservationDto {
-    Date start;
 
-    Date end;
+    Long id;
+
+    LocalDateTime start;
+
+    LocalDateTime end;
+
+    String title;
+
+    String email;
+
+
 
 }

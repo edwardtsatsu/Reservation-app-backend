@@ -9,7 +9,10 @@ public class ReservationToReservationDtoConverter implements Converter<Reservati
 
     @Override
     public ReservationDto convert(Reservation source) {
-        return null;
+        return ReservationDto.builder()
+                .start(source.getStart())
+                .end(source.getEnd())
+                .build();
     }
 
 }

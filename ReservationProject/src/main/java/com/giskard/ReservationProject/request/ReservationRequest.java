@@ -8,12 +8,10 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 
-
 @Value
-@Builder
 @Data
-public class AvailabilityRequest {
-
+@Builder
+public class ReservationRequest {
     @NotNull
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     @JsonFormat(pattern="yyyy-MM-dd-HH:mm:ss")
@@ -25,5 +23,7 @@ public class AvailabilityRequest {
     @JsonFormat(pattern="yyyy-MM-dd-HH:mm:ss")
     LocalDateTime end;
 
+    String title;
 
+    String email;
 }
