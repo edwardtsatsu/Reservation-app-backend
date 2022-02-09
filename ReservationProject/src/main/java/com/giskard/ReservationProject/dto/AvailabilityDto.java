@@ -1,9 +1,14 @@
 package com.giskard.ReservationProject.dto;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.giskard.ReservationProject.constant.Day;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -16,12 +21,15 @@ public class AvailabilityDto {
 
     UUID id;
 
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    LocalDateTime start;
+    int slot;
 
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    LocalDateTime end;
 
+    String startTime;
+
+
+    String endTime;
+
+    String day;
 
 
 }

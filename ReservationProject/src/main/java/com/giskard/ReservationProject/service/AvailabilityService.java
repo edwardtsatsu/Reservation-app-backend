@@ -6,8 +6,13 @@ import com.giskard.ReservationProject.exception.AvailabilityNotFoundException;
 import com.giskard.ReservationProject.model.Availability;
 import com.giskard.ReservationProject.repository.AvailabilityRepository;
 import com.giskard.ReservationProject.request.AvailabilityRequest;
+import com.giskard.ReservationProject.utils.Helpers;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -36,11 +41,17 @@ public class AvailabilityService {
     }
 
 
-    public List<AvailabilityDto> getAvailabilities() {
-        return availabilityRepository.findAll().stream()
+    public List<AvailabilityDto> getAvailabilities(Date date) {
+        List<Availability> availabilities = date == null
+                ? availabilityRepository.findAll()
+                :availabilityRepository.findByDayAndSlotGreaterThan(Helpers.getDayFromDate(date),0);
+
+        return  availabilities.stream()
                 .map(availabilityToAvailabilityDtoConverter::convert)
                 .collect(Collectors.toList());
     }
+
+
 
 
 }

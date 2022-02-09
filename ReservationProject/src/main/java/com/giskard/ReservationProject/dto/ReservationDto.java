@@ -1,4 +1,5 @@
 package com.giskard.ReservationProject.dto;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Data;
@@ -6,6 +7,8 @@ import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Date;
 import java.util.UUID;
 
 
@@ -17,17 +20,15 @@ public class ReservationDto {
 
     UUID id;
 
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    LocalDateTime start;
+    LocalTime startTime;
 
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    LocalDateTime end;
+    LocalTime endTime;
 
+    Date date;
 
     String title;
 
     String email;
-
 
 
 }

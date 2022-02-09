@@ -3,11 +3,13 @@ import com.giskard.ReservationProject.dto.AvailabilityDto;
 import com.giskard.ReservationProject.request.AvailabilityRequest;
 import com.giskard.ReservationProject.service.AvailabilityService;
 import lombok.AllArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -27,8 +29,8 @@ public class AvailabilityController {
 
 
     @GetMapping("/availabilities")
-    public List<AvailabilityDto> getAvailabilities(){
-        return availabilitiesService.getAvailabilities();
+    public List<AvailabilityDto> getAvailabilities(@RequestParam (value = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE ) Date date){
+        return availabilitiesService.getAvailabilities(date);
     }
 
 

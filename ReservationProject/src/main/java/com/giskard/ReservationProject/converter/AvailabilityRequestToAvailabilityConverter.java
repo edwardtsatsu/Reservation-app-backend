@@ -12,8 +12,10 @@ public class AvailabilityRequestToAvailabilityConverter implements Converter<Ava
     @NonNull
     public Availability convert(AvailabilityRequest source) {
         return Availability.builder()
-                .start(source.getStart())
-                .end(source.getEnd())
+                .startTime(source.getStartTime())
+                .endTime(source.getEndTime())
+                .day(source.getDay().toString())
+                .slot(source.getSlot())
                 .build();
     }
 }

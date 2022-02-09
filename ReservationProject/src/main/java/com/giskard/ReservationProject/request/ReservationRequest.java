@@ -1,33 +1,27 @@
 package com.giskard.ReservationProject.request;
-import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Builder;
 import lombok.Data;
-import lombok.Value;
-import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Date;
 import java.util.UUID;
 
 
-@Value
 @Data
 @Builder
 public class ReservationRequest {
     @NotNull
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    @JsonFormat(pattern="yyyy-MM-dd-HH:mm:ss")
-    LocalDateTime start;
-
+    UUID availabilityId;
 
     @NotNull
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    @JsonFormat(pattern="yyyy-MM-dd-HH:mm:ss")
-    LocalDateTime end;
+    private Date date;
+    @NotEmpty
+    private String title;
+    @NotEmpty
+    private String email;
 
-    String title;
 
-    String email;
-
-    UUID availabilityId;
 }

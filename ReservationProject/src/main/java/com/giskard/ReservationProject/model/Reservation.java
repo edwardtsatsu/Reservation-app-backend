@@ -4,6 +4,7 @@ import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.UUID;
 
@@ -22,18 +23,16 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @Column(name = "_start")
-    private LocalDateTime start;
+    private LocalTime startTime;
 
-    @Column(name = "_end")
-    private LocalDateTime end;
+    private LocalTime endTime;
+
+    private Date date;
 
     private String title;
 
     private String email;
 
-    @ManyToOne
-    @JoinColumn(name = "availability_id")
-    private Availability availability;
+
 
 }

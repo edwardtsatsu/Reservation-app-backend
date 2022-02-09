@@ -33,7 +33,7 @@ class AvailabilityControllerTest {
 
     @Test
     void testGetAvailabilities() throws Exception {
-        when(this.availabilityService.getAvailabilities()).thenReturn(new ArrayList<>());
+        when(this.availabilityService.getAvailabilities(null)).thenReturn(new ArrayList<>());
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/availabilities");
         MockMvcBuilders.standaloneSetup(this.availabilityController)
                 .build()
@@ -45,7 +45,7 @@ class AvailabilityControllerTest {
 
     @Test
     void testGetAvailabilities2() throws Exception {
-        when(this.availabilityService.getAvailabilities()).thenReturn(new ArrayList<>());
+        when(this.availabilityService.getAvailabilities(null)).thenReturn(new ArrayList<>());
         MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/availabilities");
         getResult.characterEncoding("Encoding");
         MockMvcBuilders.standaloneSetup(this.availabilityController)

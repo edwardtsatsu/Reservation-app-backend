@@ -11,9 +11,11 @@ public class AvailabilityToAvailabilityDtoConverter implements Converter<Availab
     @Override
     public AvailabilityDto convert(Availability source) {
         return AvailabilityDto.builder()
-                .start(source.getStart())
+                .startTime(source.getStartTime().toString())
                 .id(source.getId())
-                .end(source.getEnd())
+                .slot(source.getSlot())
+                .day(source.getDay())
+                .endTime(source.getEndTime().toString())
                 .build();
     }
 
