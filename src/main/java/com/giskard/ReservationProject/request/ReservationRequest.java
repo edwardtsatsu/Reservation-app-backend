@@ -1,11 +1,12 @@
 package com.giskard.ReservationProject.request;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.time.LocalTime;
 import java.util.Date;
 import java.util.UUID;
 

@@ -54,7 +54,7 @@ class AvailabilityServiceTest {
         when(this.availabilityToAvailabilityDtoConverter.convert((Availability) any())).thenReturn(null);
 
         Availability availability = new Availability();
-        availability.setDay("Day");
+        availability.setDay("MONDAY");
         availability.setEndTime(LocalTime.of(1, 1));
         availability.setId(UUID.randomUUID());
         availability.setSlot(1);
@@ -62,7 +62,7 @@ class AvailabilityServiceTest {
         when(this.availabilityRequestToAvailabilityConverter.convert((AvailabilityRequest) any())).thenReturn(availability);
 
         Availability availability1 = new Availability();
-        availability1.setDay("Day");
+        availability1.setDay("MONDAY");
         availability1.setEndTime(LocalTime.of(1, 1));
         availability1.setId(UUID.randomUUID());
         availability1.setSlot(1);
@@ -79,7 +79,7 @@ class AvailabilityServiceTest {
         when(this.availabilityToAvailabilityDtoConverter.convert((Availability) any())).thenReturn(null);
 
         Availability availability = new Availability();
-        availability.setDay("Day");
+        availability.setDay("TUESDAY");
         availability.setEndTime(LocalTime.of(1, 1));
         availability.setId(UUID.randomUUID());
         availability.setSlot(1);
@@ -106,7 +106,7 @@ class AvailabilityServiceTest {
     @Test
     void testDeleteAvailabilities() {
         Availability availability = new Availability();
-        availability.setDay("Day");
+        availability.setDay("WEDNESDAY");
         availability.setEndTime(LocalTime.of(1, 1));
         availability.setId(UUID.randomUUID());
         availability.setSlot(1);
@@ -122,7 +122,7 @@ class AvailabilityServiceTest {
     @Test
     void testDeleteAvailabilities2() {
         Availability availability = new Availability();
-        availability.setDay("Day");
+        availability.setDay("THURSDAY");
         availability.setEndTime(LocalTime.of(1, 1));
         availability.setId(UUID.randomUUID());
         availability.setSlot(1);

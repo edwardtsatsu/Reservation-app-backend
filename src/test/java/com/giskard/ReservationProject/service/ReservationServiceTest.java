@@ -52,7 +52,7 @@ class ReservationServiceTest {
         LocalDateTime atStartOfDayResult = LocalDate.of(2022, 1, 1).atStartOfDay();
         Date fromResult = Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant());
         reservation.setDate(fromResult);
-        reservation.setEmail("jane.doe@example.org");
+        reservation.setEmail("edward@example.org");
         reservation.setEndTime(LocalTime.of(1, 1));
         UUID randomUUIDResult = UUID.randomUUID();
         reservation.setId(randomUUIDResult);
@@ -61,7 +61,7 @@ class ReservationServiceTest {
         when(this.reservationRepository.save((Reservation) any())).thenReturn(reservation);
 
         Availability availability = new Availability();
-        availability.setDay("Day");
+        availability.setDay("MONDAY");
         availability.setEndTime(LocalTime.of(1, 1));
         availability.setId(UUID.randomUUID());
         availability.setSlot(1);
@@ -70,7 +70,7 @@ class ReservationServiceTest {
         when(this.availabilityRepository.findByIdAndDayAndSlotGreaterThan((UUID) any(), (String) any(), (Integer) any()))
                 .thenReturn(ofResult);
         ReservationRequest reservationRequest = mock(ReservationRequest.class);
-        when(reservationRequest.getEmail()).thenReturn("jane.doe@example.org");
+        when(reservationRequest.getEmail()).thenReturn("edward@example.org");
         when(reservationRequest.getTitle()).thenReturn("A tech talk");
         LocalDateTime atStartOfDayResult1 = LocalDate.of(2022, 1, 1).atStartOfDay();
         when(reservationRequest.getDate()).thenReturn(Date.from(atStartOfDayResult1.atZone(ZoneId.of("UTC")).toInstant()));
@@ -81,7 +81,7 @@ class ReservationServiceTest {
         assertEquals("01:01", actualCreateReservationResult.getStartTime().toString());
         assertSame(randomUUIDResult, actualCreateReservationResult.getId());
         assertEquals("01:01", actualCreateReservationResult.getEndTime().toString());
-        assertEquals("jane.doe@example.org", actualCreateReservationResult.getEmail());
+        assertEquals("edward@example.org", actualCreateReservationResult.getEmail());
         verify(this.reservationRepository).save((Reservation) any());
         verify(this.availabilityRepository).findByIdAndDayAndSlotGreaterThan((UUID) any(), (String) any(), (Integer) any());
         verify(reservationRequest).getEmail();
@@ -95,7 +95,7 @@ class ReservationServiceTest {
         Reservation reservation = new Reservation();
         LocalDateTime atStartOfDayResult = LocalDate.of(2020, 1, 1).atStartOfDay();
         reservation.setDate(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
-        reservation.setEmail("jane.doe@example.org");
+        reservation.setEmail("akorlie@example.org");
         reservation.setEndTime(LocalTime.of(1, 1));
         reservation.setId(UUID.randomUUID());
         reservation.setStartTime(LocalTime.of(1, 1));
@@ -103,7 +103,7 @@ class ReservationServiceTest {
         when(this.reservationRepository.save((Reservation) any())).thenReturn(reservation);
 
         Availability availability = new Availability();
-        availability.setDay("Day");
+        availability.setDay("MONDAY");
         availability.setEndTime(LocalTime.of(1, 1));
         availability.setId(UUID.randomUUID());
         availability.setSlot(1);
@@ -130,7 +130,7 @@ class ReservationServiceTest {
         reservation.setEndTime(LocalTime.of(1, 1));
         reservation.setId(UUID.randomUUID());
         reservation.setStartTime(LocalTime.of(1, 1));
-        reservation.setTitle("Create a theme");
+        reservation.setTitle("Create a theme on the giskard platform");
 
         Reservation reservation1 = new Reservation();
         LocalDateTime atStartOfDayResult1 = LocalDate.of(1970, 1, 1).atStartOfDay();
@@ -139,7 +139,7 @@ class ReservationServiceTest {
         reservation1.setEndTime(LocalTime.of(1, 1));
         reservation1.setId(UUID.randomUUID());
         reservation1.setStartTime(LocalTime.of(1, 1));
-        reservation1.setTitle("Dr");
+        reservation1.setTitle("know more about giskard");
 
         Reservation reservation2 = new Reservation();
         LocalDateTime atStartOfDayResult2 = LocalDate.of(1970, 1, 1).atStartOfDay();
@@ -148,7 +148,7 @@ class ReservationServiceTest {
         reservation2.setEndTime(LocalTime.of(1, 1));
         reservation2.setId(UUID.randomUUID());
         reservation2.setStartTime(LocalTime.of(1, 1));
-        reservation2.setTitle("Dr");
+        reservation2.setTitle("I will miss it a talk");
 
         Reservation reservation3 = new Reservation();
         LocalDateTime atStartOfDayResult3 = LocalDate.of(1970, 1, 1).atStartOfDay();
@@ -157,7 +157,7 @@ class ReservationServiceTest {
         reservation3.setEndTime(LocalTime.of(1, 1));
         reservation3.setId(UUID.randomUUID());
         reservation3.setStartTime(LocalTime.of(1, 1));
-        reservation3.setTitle("Dr");
+        reservation3.setTitle("I will miss it a talk");
 
         Reservation reservation4 = new Reservation();
         LocalDateTime atStartOfDayResult4 = LocalDate.of(1970, 1, 1).atStartOfDay();
@@ -166,7 +166,7 @@ class ReservationServiceTest {
         reservation4.setEndTime(LocalTime.of(1, 1));
         reservation4.setId(UUID.randomUUID());
         reservation4.setStartTime(LocalTime.of(1, 1));
-        reservation4.setTitle("Dr");
+        reservation4.setTitle("I will miss it a talk");
 
         Reservation reservation5 = new Reservation();
         LocalDateTime atStartOfDayResult5 = LocalDate.of(1970, 1, 1).atStartOfDay();
@@ -175,7 +175,7 @@ class ReservationServiceTest {
         reservation5.setEndTime(LocalTime.of(1, 1));
         reservation5.setId(UUID.randomUUID());
         reservation5.setStartTime(LocalTime.of(1, 1));
-        reservation5.setTitle("Dr");
+        reservation5.setTitle("I will miss it a talk");
         Reservation reservation6 = mock(Reservation.class);
         when(reservation6.setDate((Date) any())).thenReturn(reservation);
         when(reservation6.setEmail((String) any())).thenReturn(reservation1);
@@ -184,7 +184,7 @@ class ReservationServiceTest {
         when(reservation6.setStartTime((LocalTime) any())).thenReturn(reservation4);
         when(reservation6.setTitle((String) any())).thenReturn(reservation5);
         when(reservation6.getEmail()).thenReturn("jane.doe@example.org");
-        when(reservation6.getTitle()).thenReturn("Dr");
+        when(reservation6.getTitle()).thenReturn("I will miss it a talk");
         when(reservation6.getEndTime()).thenReturn(LocalTime.of(1, 1));
         when(reservation6.getStartTime()).thenReturn(LocalTime.of(1, 1));
         LocalDateTime atStartOfDayResult6 = LocalDate.of(1970, 1, 1).atStartOfDay();
@@ -198,7 +198,7 @@ class ReservationServiceTest {
         reservation6.setEndTime(LocalTime.of(1, 1));
         reservation6.setId(UUID.randomUUID());
         reservation6.setStartTime(LocalTime.of(1, 1));
-        reservation6.setTitle("Dr");
+        reservation6.setTitle("I will miss it a talk");
         when(this.reservationRepository.save((Reservation) any())).thenReturn(reservation6);
 
         Availability availability = new Availability();
@@ -212,13 +212,13 @@ class ReservationServiceTest {
                 .thenReturn(ofResult);
         ReservationRequest reservationRequest = mock(ReservationRequest.class);
         when(reservationRequest.getEmail()).thenReturn("jane.doe@example.org");
-        when(reservationRequest.getTitle()).thenReturn("Dr");
+        when(reservationRequest.getTitle()).thenReturn("I will miss it a talk");
         LocalDateTime atStartOfDayResult8 = LocalDate.of(1970, 1, 1).atStartOfDay();
         when(reservationRequest.getDate()).thenReturn(Date.from(atStartOfDayResult8.atZone(ZoneId.of("UTC")).toInstant()));
         when(reservationRequest.getAvailabilityId()).thenReturn(UUID.randomUUID());
         ReservationDto actualCreateReservationResult = this.reservationService.createReservation(reservationRequest);
         assertSame(fromResult, actualCreateReservationResult.getDate());
-        assertEquals("Dr", actualCreateReservationResult.getTitle());
+        assertEquals("I will miss it a talk", actualCreateReservationResult.getTitle());
         assertEquals("01:01", actualCreateReservationResult.getStartTime().toString());
         assertSame(randomUUIDResult, actualCreateReservationResult.getId());
         assertEquals("01:01", actualCreateReservationResult.getEndTime().toString());
@@ -252,7 +252,7 @@ class ReservationServiceTest {
         reservation.setEndTime(LocalTime.of(1, 1));
         reservation.setId(UUID.randomUUID());
         reservation.setStartTime(LocalTime.of(1, 1));
-        reservation.setTitle("Let us have a talk");
+        reservation.setTitle("Let us have a talk on giskard Ai");
         Optional<Reservation> ofResult = Optional.of(reservation);
         doNothing().when(this.reservationRepository).delete((Reservation) any());
         when(this.reservationRepository.findByIdAndEmail((UUID) any(), (String) any())).thenReturn(ofResult);
@@ -270,7 +270,7 @@ class ReservationServiceTest {
         reservation.setEndTime(LocalTime.of(1, 1));
         reservation.setId(UUID.randomUUID());
         reservation.setStartTime(LocalTime.of(1, 1));
-        reservation.setTitle("Dr");
+        reservation.setTitle("I will miss it a talk");
         Optional<Reservation> ofResult = Optional.of(reservation);
         doThrow(new AvailabilityNotFoundException("An error occurred")).when(this.reservationRepository)
                 .delete((Reservation) any());

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.UUID;
 
+@CrossOrigin
 @RestController
 @AllArgsConstructor
 public class ReservationController {
