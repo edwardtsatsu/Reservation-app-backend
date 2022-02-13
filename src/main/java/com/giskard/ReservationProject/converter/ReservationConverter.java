@@ -6,6 +6,8 @@ import com.giskard.ReservationProject.request.ReservationRequest;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 
 public class ReservationConverter  {
 
@@ -32,5 +34,7 @@ public class ReservationConverter  {
                 .date(source.getDate())
                 .build();
     }
+
+
 
 }

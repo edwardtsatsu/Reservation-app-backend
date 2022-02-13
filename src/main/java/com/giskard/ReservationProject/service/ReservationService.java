@@ -11,7 +11,10 @@ import com.giskard.ReservationProject.utils.Helpers;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
+import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -39,6 +42,14 @@ public class ReservationService {
                         new AvailabilityNotFoundException("Reservation with id " + id + "and email " + email + " not found"));
         System.out.println("reservation");
         reservationRepository.delete(reservation);
+    }
+
+
+    public List<ReservationDto> getAllReservations() {
+        List<Reservation> reservations = reservationRepository.findAll();
+        return reservations.stream()
+                .map(ReservationConverter::convertToDto)
+                .collect(Collectors.toList());
     }
 
 

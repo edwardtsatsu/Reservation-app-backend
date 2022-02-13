@@ -1,6 +1,7 @@
 package com.giskard.ReservationProject.controller;
 import com.giskard.ReservationProject.dto.ReservationDto;
 import com.giskard.ReservationProject.exception.InvalidReservationRequestException;
+import com.giskard.ReservationProject.model.Reservation;
 import com.giskard.ReservationProject.request.ReservationRequest;
 import com.giskard.ReservationProject.service.ReservationService;
 import lombok.AllArgsConstructor;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.UUID;
 
 @CrossOrigin
@@ -19,9 +21,14 @@ public class ReservationController {
 
 
     @PostMapping("/reservation")
-    public  ResponseEntity<ReservationDto> createReservation(@Valid @RequestBody
+    public ResponseEntity<ReservationDto> createReservation(@Valid @RequestBody
                                                              ReservationRequest reservationRequest) throws InvalidReservationRequestException {
         return new ResponseEntity<>(reservationService.createReservation(reservationRequest), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/reservation")
+    public ResponseEntity<List<ReservationDto>> getAllReservations(){
+        return new ResponseEntity<>(reservationService.getAllReservations(), HttpStatus.OK) ;
     }
 
     @DeleteMapping("/reservation/{id}/{email}")

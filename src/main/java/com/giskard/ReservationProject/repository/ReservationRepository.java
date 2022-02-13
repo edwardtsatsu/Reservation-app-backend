@@ -10,5 +10,5 @@ public interface ReservationRepository extends JpaRepository<Reservation, UUID> 
 
    Optional<Reservation> findByIdAndEmail(UUID id, String email);
 
-
 }
+
