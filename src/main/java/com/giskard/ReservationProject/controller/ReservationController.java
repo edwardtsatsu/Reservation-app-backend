@@ -1,7 +1,6 @@
 package com.giskard.ReservationProject.controller;
 import com.giskard.ReservationProject.dto.ReservationDto;
 import com.giskard.ReservationProject.exception.InvalidReservationRequestException;
-import com.giskard.ReservationProject.model.Reservation;
 import com.giskard.ReservationProject.request.ReservationRequest;
 import com.giskard.ReservationProject.service.ReservationService;
 import lombok.AllArgsConstructor;
