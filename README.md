@@ -9,7 +9,7 @@ I may end up forgetting to create a new availability even if I am available.The 
 ## OBJECTIVE:
 To design and implement a machine learning model to classify a given reservation to "yes I am Available" and "No I am not Available".
 
-## SIGNIFICANCE OF USING SATISFACTION CONSTRAINT:
+## SIGNIFICANCE OF USING ML MODEL:
 To help prevent the creation of new availabilities every time.
 To give the client the automotive view in creating a reservation
 To have an automated system and improve accuracy in making reservations
