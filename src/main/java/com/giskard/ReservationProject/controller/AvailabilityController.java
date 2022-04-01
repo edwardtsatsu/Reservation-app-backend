@@ -15,8 +15,9 @@ import java.util.UUID;
 
 
 @CrossOrigin
-@RestController
 @AllArgsConstructor
+@RestController
+@RequestMapping("api/v1")
 public class AvailabilityController {
 
     private final AvailabilityService availabilitiesService;
@@ -24,13 +25,13 @@ public class AvailabilityController {
 
     @PostMapping("/availabilities")
     public ResponseEntity<AvailabilityDto> createAvailabilities(@Valid @RequestBody
-                          AvailabilityRequest availabilityRequest) {
+                                                                        AvailabilityRequest availabilityRequest) {
         return new ResponseEntity<>(availabilitiesService.createAvailabilities(availabilityRequest), HttpStatus.CREATED);
     }
 
 
     @GetMapping("/availabilities")
-    public List<AvailabilityDto> getAvailabilities(@RequestParam (value = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE ) Date date){
+    public List<AvailabilityDto> getAvailabilities(@RequestParam(value = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE ) Date date){
         return availabilitiesService.getAvailabilities(date);
     }
 

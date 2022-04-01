@@ -1,7 +1,4 @@
 package com.giskard.ReservationProject.request;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Data;
 
@@ -13,7 +10,7 @@ import java.util.UUID;
 
 @Data
 @Builder
-public class ReservationRequest {
+public class  ReservationRequest {
     @NotNull
     UUID availabilityId;
 

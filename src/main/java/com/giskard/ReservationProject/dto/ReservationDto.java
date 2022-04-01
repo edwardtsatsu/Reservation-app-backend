@@ -1,12 +1,11 @@
 package com.giskard.ReservationProject.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Builder;
 import lombok.Data;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
 
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Date;
 import java.util.UUID;
@@ -29,7 +28,6 @@ public class ReservationDto {
     String title;
 
     String email;
-
 
 
 }

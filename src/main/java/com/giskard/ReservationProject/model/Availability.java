@@ -1,8 +1,9 @@
 package com.giskard.ReservationProject.model;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.giskard.ReservationProject.constant.Day;
 import lombok.*;
 import lombok.experimental.Accessors;
+
 import javax.persistence.*;
 import java.time.LocalTime;
 import java.util.UUID;
@@ -23,10 +24,10 @@ public class Availability {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @JsonFormat(pattern="HH:mm")
+    @JsonFormat(pattern = "HH:mm")
     private LocalTime startTime;
 
-    @JsonFormat(pattern="HH:mm")
+    @JsonFormat(pattern = "HH:mm")
     private LocalTime endTime;
 
 
